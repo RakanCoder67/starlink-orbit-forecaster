@@ -17,9 +17,10 @@ Median position error of forecasts that cover a storm (seven storms, May 2024 to
 
 ## What is on the page
 - the three numbers above;
-- a live example: two storms that came after the training of the model (9-10 November 2024 and 1-3 January 2025), four Starlink satellites each, forecast made on your device;
+- a live example with a 3-D view of the real orbit and the two forecasts (drag to turn the Earth, slide through the forecast days): two storms that came after the training of the model (9-10 November 2024 and 1-3 January 2025), four Starlink satellites each, forecast made on your device;
 - how it works in three steps;
 - a table with the result of each storm;
+- a link to the full detailed view (`detail.html`: ground track, true-scale view, storm replays with Dst and Kp, results against the pass marks, and the checks);
 - details folded away: limits, checks, data and credits.
 
 ## How it works
@@ -29,6 +30,7 @@ Median position error of forecasts that cover a storm (seven storms, May 2024 to
 
 ## Files
 - `index.html`: the whole page (the trained model, the forecaster in JavaScript, the satellite.js library and the example satellites are inside this one file).
+- `detail.html`: the full detailed view, also one file.
 - `README.md`: this text.
 
 ## Data and credits
