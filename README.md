@@ -4,7 +4,7 @@ Live page: https://rakancoder67.github.io/starlink-orbit-forecaster/
 
 A test of a machine-learning correction to the standard orbit forecast (SGP4) of Starlink satellites during geomagnetic storms: 14 storms from May 2024 to July 2026, a simple rule without machine learning as the baseline, a forward test with rules written down before the data were opened, and every limit stated. The page runs the real model inside the browser (no server, no account, no network request after the page has loaded) and works offline.
 
-Version 6.0, built 2 Nov 2026, 14:21 (Saudi time).
+Version 6.0, built 2 Nov 2026, 16:01 (Saudi time).
 
 ## Result in one table
 Typical (median) position error of forecasts that cover a storm, 1-5 days ahead, in km:
@@ -26,10 +26,12 @@ Typical (median) position error of forecasts that cover a storm, 1-5 days ahead,
 ## Files
 - `index.html`: the whole page (trained model, forecaster in JavaScript, satellite.js and the example satellites are inside this one file).
 - `detail.html`: the full detailed view (ground track, true-scale view, storm replays with Dst and Kp, quiet-week test against SpaceX positions), also one file. The file names are lower case; GitHub Pages is case-sensitive.
+- `live.html`: Live forecasts. Pick a Starlink satellite, enter an exact UTC time and get the predicted position with the positional error of standard SGP4 corrected; shows the current NOAA space-weather status. It reads `live_tles.json` (made by `get_live_data.py`) when that file is next to the page, or a file the visitor loads.
+- `get_live_data.py`: downloads recent orbit files from Space-Track (your own free login, nothing stored) and writes `live_tles.json`.
 - `404.html`: shown for addresses that do not exist.
 - `LICENSE`: MIT licence.
 - `build_info.json`: version, size and fingerprints of the files.
-- `offline/`: the same two pages with instructions for a computer without internet.
+- `offline/`: the same pages with instructions for a computer without internet.
 
 ## How it works
 1. SGP4 turns the newest public orbit file (TLE) of a satellite into a forecast.
