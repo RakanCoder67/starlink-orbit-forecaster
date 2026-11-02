@@ -4,7 +4,7 @@ Live page: https://rakancoder67.github.io/starlink-orbit-forecaster/
 
 A test of a machine-learning correction to the standard orbit forecast (SGP4) of Starlink satellites during geomagnetic storms: 14 storms from May 2024 to July 2026, a simple rule without machine learning as the baseline, a forward test with rules written down before the data were opened, and every limit stated. The page runs the real model inside the browser (no server, no account, no network request after the page has loaded) and works offline.
 
-Version 6.0, built 2 Nov 2026, 16:01 (Saudi time).
+Version 6.0, built 2 Nov 2026, 16:22 (Saudi time).
 
 ## Result in one table
 Typical (median) position error of forecasts that cover a storm, 1-5 days ahead, in km:

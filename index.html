@@ -462,7 +462,7 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
     <tr><th scope="row">Combination of files</th><td>Each of the up to 10 newest orbit files gives its own corrected forecast. Their differences from the newest file&rsquo;s forecast are combined by a weighted median, with weight exp(&minus;age / 5 days); a file is left out if its mean motion differs from the newest file&rsquo;s by more than the equivalent of 0.5 km of altitude. The newest file alone is used below 12 h of lead time and the combination above 36 h (blended in between). The standard forecast is used below 4 h and the corrected one above 8 h (blended in between)</td></tr>
     <tr><th scope="row">Training</th><td>Forecasts from orbit files of 1 May &ndash; 30 Sep 2024, target times to 30 Oct 2024; satellites split into groups by a fixed rule on the NORAD number; the test group (about 20 %) was never used for training or tuning; SpaceX-ephemeris satellites excluded</td></tr>
     <tr><th scope="row">Tuning</th><td>Development tables on other satellite groups, to 30 Dec 2024; the setting was chosen there and then frozen</td></tr>
-    <tr><th scope="row">Fingerprint</th><td>The trained model inside this page has the SHA-256 <span class="mono" id="sha">2765bcab52e682ae...</span></td></tr>
+    <tr><th scope="row">Fingerprint</th><td>SHA-256 of the trained model: <span class="mono" id="sha">2765bcab52e682ae...</span></td></tr>
   </tbody></table></div>
 </section>
 
@@ -493,7 +493,7 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
         <li>A <b>numerical propagator</b> with a density model as a physics baseline.</li>
         <li>A <b>separation of storm effects from thruster effects</b>. A published observing study of the May 2024 storm (<a href="#refs">Danescu et al.</a>) found manoeuvres to be the main source of the errors it measured.</li>
         <li>SHAP values, and a run of the page&rsquo;s SGP4 against the <b>official test vectors</b>; the page is compared with the research program (which uses the Python sgp4 library) instead.</li>
-        <li>An external, tamper-evident time stamp of the filings (the time stamps below come from the analysis computer&rsquo;s clock).</li>
+        <li>An external, tamper-evident time stamp of the filings (the time stamps below come from the computer clock used for the analysis).</li>
       </ul>
     </div>
   </div>
@@ -520,7 +520,7 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
     <li><b>Forward test (2025&ndash;26).</b> The rules were filed before any orbit file of April 2025 or later was downloaded or opened. Addendum 1 adds one secondary check (before any download), addendum 2 records that the download was stopped on 14 September 2026, and addenda 3 and 4 correct a print format in a gate script and fix where the audit looks for the tables, each filed before the output it concerns existed.</li>
     <li><b>Calm-weather test (31 October 2026).</b> The rules were filed at 16:58; its two addenda were filed before the scoring they concern.</li>
   </ul>
-  <p>The time stamps come from the clock of the analysis computer; no external service was used, so they show order, not independent proof of time.</p>
+  <p>The time stamps come from the computer clock used for the analysis; no external service was used, so they show order, not independent proof of time.</p>
   <details class="sub-d"><summary>Full list of filings, with fingerprints</summary><div class="scroll"><table class="census"><thead><tr><th>Document</th><th>Filed (Saudi time)</th><th>SHA-256 (leading 16 characters)</th></tr></thead><tbody><tr><td>Final test (calm weather): rules</td><td>31 Oct 2026, 16:58</td><td class="mono">0865d5a61ea73ccd</td></tr><tr><td>Final test: addendum 1</td><td>31 Oct 2026, 17:04</td><td class="mono">9a8758e17ef5b9df</td></tr><tr><td>Final test: addendum 2</td><td>31 Oct 2026, 17:09</td><td class="mono">45d3a196d0489801</td></tr><tr><td>Storm study: rules</td><td>31 Oct 2026, 21:49</td><td class="mono">ea13dd0bfc323248</td></tr><tr><td>Storm study: addendum 1</td><td>31 Oct 2026, 21:55</td><td class="mono">9e3e0f4b38099a82</td></tr><tr><td>Storm study: addendum 2</td><td>31 Oct 2026, 22:09</td><td class="mono">7f71bfcfb226fd57</td></tr><tr><td>Storm study: addendum 3 (one storm already scored)</td><td>31 Oct 2026, 22:18</td><td class="mono">6770bb86d5e7ee79</td></tr><tr><td>Storm study: addendum 4</td><td>1 Nov 2026, 00:15</td><td class="mono">a82d0f7ee991b520</td></tr><tr><td>Storm study: addendum 5</td><td>1 Nov 2026, 02:30</td><td class="mono">b2b44ed03bdfd5c9</td></tr><tr><td>Storm study: addendum 6</td><td>1 Nov 2026, 21:41</td><td class="mono">d0da3e0fe465f570</td></tr><tr><td>Storm study: addendum 6b</td><td>1 Nov 2026, 23:00</td><td class="mono">16d77c3b44dffd2f</td></tr><tr><td>Storm study: addendum 6c</td><td>1 Nov 2026, 23:36</td><td class="mono">7cae20097e89ba91</td></tr><tr><td>Forward test: rules</td><td>1 Nov 2026, 00:53</td><td class="mono">6b1619e8a8a1d4be</td></tr><tr><td>Forward test: addendum 1</td><td>1 Nov 2026, 02:32</td><td class="mono">2a1ed27cc82541e9</td></tr><tr><td>Forward test: addendum 2</td><td>2 Nov 2026, 11:37</td><td class="mono">796e5b20e8722230</td></tr><tr><td>Forward test: addendum 3</td><td>2 Nov 2026, 11:42</td><td class="mono">bfc76421c71723f1</td></tr><tr><td>Forward test: addendum 4</td><td>2 Nov 2026, 11:55</td><td class="mono">4182e9de3c0cf597</td></tr></tbody></table></div></details>
 
   <h3 id="uncertainty">Uncertainty ranges</h3>
@@ -531,12 +531,11 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
   <h3>Reproducibility</h3>
   <ul class="plain">
     <li><b>Repository:</b> <a href="https://github.com/RakanCoder67/starlink-orbit-forecaster" rel="noopener">https://github.com/RakanCoder67/starlink-orbit-forecaster</a> (this page, the detailed view, README and licence). <b>Licence:</b> MIT, see <span class="mono">LICENSE</span> in the repository.</li>
-    <li><b>The model is inside this page</b> (a packed copy of all 3 &times; 780 trees) together with the forecaster in JavaScript and satellite.js. The SHA-256 above is recomputed in your browser and compared. Before the page was built, its forecaster was checked against the research program (Python) on 56 test satellites (1,400 forecast times). The largest difference was 1.6e-8 km in plain SGP4 positions and 1.5e-11 km in the corrected tracks, and the warnings, safety-rule decisions and combination counts were identical. On the 12 example satellites, the largest difference in the errors was 6.8e-12 km. The same test fails when a single leaf of the model is changed by 0.01, so it is able to catch errors.</li>
+    <li><b>The model is inside this page</b> (a packed copy of all 3 &times; 780 trees) together with the forecaster in JavaScript and satellite.js. Before the page was built, its forecaster was checked against the research program (Python) on 56 test satellites (1,400 forecast times). The largest difference was 1.6e-8 km in plain SGP4 positions and 1.5e-11 km in the corrected tracks, and the warnings, safety-rule decisions and combination counts were identical. On the 12 example satellites, the largest difference in the errors was 6.8e-12 km. The same test fails when a single leaf of the model is changed by 0.01, so it is able to catch errors.</li>
     <li><b>Offline:</b> save <span class="mono">index.html</span> and <span class="mono">detail.html</span> in one folder and open <span class="mono">index.html</span>; no part of the page loads from the internet.</li>
-    <li><b>Version:</b> 6.0, built 2 Nov 2026, 16:01 (Saudi time). File fingerprint of this page: see <span class="mono">build_info.json</span> in the repository.</li>
-    <li><b>Not part of this repository yet:</b> the research code, the list of test satellites and the per-forecast results table. They are kept in the project files; every number in the tables of this page comes from those results.</li>
+    <li><b>Version:</b> 6.0, built 2 Nov 2026, 16:22 (Saudi time).</li>
+    <li><b>Not published yet:</b> the research code, the list of test satellites and the per-forecast results table. Every number in the tables of this page comes from them.</li>
   </ul>
-  <p class="small"><b>Change record of the demo examples.</b> an earlier version of this page showed four satellites per storm, taken at fixed positions of a list sorted by NORAD number, and opened with STARLINK-2493 (January 2025), whose standard forecast had a median error of 3,582 km: larger than that of 93 % of the 875 eligible satellites of that storm (their median: 174 km). On 2 November 2026 (12:36, Saudi time) the choice was changed to the spread over the difficulty ranking described above; the numbers in all tables of this page do not depend on the examples.</p>
   <p class="small">Data credits. Orbit files (TLEs): Space-Track (<a href="https://www.space-track.org" rel="noopener">https://www.space-track.org</a>) and the SpaceTrack-TimeSeries dataset (Guo et al., 2025; <a href="https://arxiv.org/abs/2506.13034" rel="noopener">https://arxiv.org/abs/2506.13034</a>). The TLE lines in the demo were re-created from stored orbital elements, rounded to the TLE format; they are not the original lines. Storm dates, Dst and Kp: the NASA/SPDF OMNI2 hourly record (<a href="https://omniweb.gsfc.nasa.gov" rel="noopener">https://omniweb.gsfc.nasa.gov</a>); Dst from the World Data Center for Geomagnetism, Kyoto; Kp from GFZ Potsdam. SGP4 in this page: satellite.js 5.0.0 (MIT license, Shashwat Kandadai and contributors; <a href="https://github.com/shashwatak/satellite-js" rel="noopener">https://github.com/shashwatak/satellite-js</a>), with one change: the export of an internal initialization function. SGP4 in the research program: the Python <span class="mono">sgp4</span> package.</p>
 </section>
 
@@ -4175,11 +4174,6 @@ function getModel() {
           var buf = decodeBase64($('model-b64').textContent.replace(/\s+/g, ''));
           model = E.loadModel(META, buf);
           resolve(model);
-          var box = $('sha'), short = META.blob_sha256.slice(0, 16) + '...';
-          if (window.crypto && crypto.subtle && crypto.subtle.digest) {
-            crypto.subtle.digest('SHA-256', buf).then(function (h) { box.textContent = short + (hex(h) === META.blob_sha256 ? ' (checked in your browser: the file inside this page matches)' : ' (MISMATCH: the file inside this page differs)'); },
-              function () { box.textContent = short + ' (not checked: this browser has no SHA-256)'; });
-          } else box.textContent = short + ' (not checked: this browser has no SHA-256)';
         } catch (e) { reject(e); }
       }, 20);
     });

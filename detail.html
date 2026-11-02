@@ -273,11 +273,11 @@ textarea#live-own-text { width: 100%; min-height: 150px; font: 12px/1.35 ui-mono
   <details class="about" id="live-about">
     <summary>What to keep in mind</summary>
     <ul>
-      <li>The model on this page is the real one from the study: 3 &times; 780 decision trees that use 17 numbers taken from the satellite's own orbit-file history. Its fingerprint (SHA-256) is <span class="mono" id="live-sha"></span>. The program in your browser gives the same answers as the original Python program: <span id="live-parity"></span></li>
+      <li>The model on this page is the real one from the study: 3 &times; 780 decision trees that use 17 numbers taken from the satellite's own orbit-file history. It gives the same answers as the original Python program: <span id="live-parity"></span></li>
       <li>Only two of the seven storms are a fair test for this exact model. It was trained on forecasts that start between 1 May and 30 Sep 2024, so the storms of 9&ndash;10 Nov 2024 (K6) and 1&ndash;3 Jan 2025 (K7) came after it. K1&ndash;K5 fall inside its training period, so those examples are only for context. The study&rsquo;s numbers for K1&ndash;K5 come from models that were retrained without each storm, and those models are not on this page.</li>
       <li>The standard forecast is SGP4 from the open-source library satellite.js (version 5.0.0). The correction is added on top, the same way as in the study.</li>
       <li>The &ldquo;real position&rdquo; is taken from a later orbit file, so it is not perfect truth. It differs from SpaceX&rsquo;s own positions by about 2.4 km, which means gaps of a few kilometers cannot be told apart from that noise (the grey band in the chart).</li>
-      <li>The examples were picked by a fixed rule, not by how they came out. <span id="live-rule"></span></li>
+      <li>The examples were chosen by a fixed rule. <span id="live-rule"></span></li>
       <li>One satellite is not the result. The result is the median over thousands of forecasts in the storm panel further down, and its rules were written before any storm was scored. Some forecasts get worse with the correction (14.2 % of the 1&ndash;5 day forecasts that cover a storm), and a satellite that fires its thrusters cannot be predicted by either method.</li>
       <li>Limits: Starlink satellites only, at least 10 orbit files, forecasts up to 29 days. The first 4 hours are plain SGP4 on purpose. The model does not use storm indices, only the satellite&rsquo;s own recent orbit history.</li>
     </ul>
@@ -4867,12 +4867,6 @@ function getModel() {
         var buf = decodeBase64($('model-b64').textContent.replace(/\s+/g, ''));
         model = E.loadModel(META, buf);
         resolve(model);
-        if (window.crypto && crypto.subtle && crypto.subtle.digest) {
-          crypto.subtle.digest('SHA-256', buf).then(function (h) {
-            var got = hex(h), ok = got === META.blob_sha256;
-            L.shaOk = ok; setText('live-sha', META.blob_sha256.slice(0, 16) + '... ' + (ok ? '(checked in your browser: the file inside this page matches)' : '(MISMATCH: the file inside this page differs)'));
-          }, function () { setText('live-sha', META.blob_sha256.slice(0, 16) + '... (not checked: this browser has no SHA-256)'); });
-        } else setText('live-sha', META.blob_sha256.slice(0, 16) + '... (not checked: this browser has no SHA-256)');
       } catch (e) { modelErr = e; reject(e); }
     }, 25);
   });

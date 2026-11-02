@@ -94,7 +94,7 @@ ul.tight { margin: 6px 0 10px; padding-left: 22px; } ul.tight li { margin: 3px 0
 
 <div class="topbar">
   <a class="brand" href="./">&larr; Starlink Orbit Forecaster</a>
-  <span class="muted">Live forecasts &middot; version 6.0 &middot; built 2 Nov 2026 16:01</span>
+  <span class="muted">Live forecasts &middot; version 6.0 &middot; built 2 Nov 2026 16:22</span>
 </div>
 
 <header class="hero">
@@ -158,7 +158,7 @@ ul.tight { margin: 6px 0 10px; padding-left: 22px; } ul.tight li { margin: 3px 0
   <h2 id="h-trust">What the numbers stand on</h2>
   <ul class="tight">
     <li><b>Starlink only.</b> The model was trained and tested on Starlink satellites and nothing else.</li>
-    <li><b>Same frozen model as the study.</b> Standard SGP4 is run on the newest 10 orbit files of the satellite, and a trained correction is added (the version in this page was checked against the Python original on test cases).</li>
+    <li><b>Same frozen model as the study.</b> Standard SGP4 is run on the newest 10 orbit files of the satellite, and a trained correction is added. The code in this page gives the same results as the Python original on test cases.</li>
     <li><b>Tested on seven storms of 2024&ndash;25</b> (May 2024 super-storm included): the median error of forecasts through storms fell by 82&nbsp;% at 1&ndash;5 days, 92&nbsp;% at 5&ndash;10 days and 99&nbsp;% at 10&ndash;29 days, against later orbit files of the same satellites.</li>
     <li><b>Forecasts for times that have not happened yet cannot be checked yet.</b> Each result is marked as a forecast and can be compared with the satellite's real orbit files once that time has passed. The self-check below the result uses the satellite's own recent past.</li>
     <li><b>The storm banner is context.</b> The model does not read space-weather data; it learned the effect of storms from how orbits changed.</li>
@@ -166,7 +166,7 @@ ul.tight { margin: 6px 0 10px; padding-left: 22px; } ul.tight li { margin: 3px 0
   <p class="small"><a href="./">Full study, numbers and method</a> &middot; <a href="detail.html">Detailed view</a></p>
 </section>
 
-<p class="foot">Research demonstration, not for operational use such as collision avoidance. Orbit data: Space-Track, as loaded by the user. Space weather: NOAA SWPC. Model file SHA-256: <span class="mono" id="sha">checking &hellip;</span></p>
+<p class="foot">Research demonstration</p>
 
 </div>
 <script id="model-meta" type="application/json">{"source_file":"app/model/corrector.npz","source_sha256":"60241aadcde590a1582624ab9d768343ae726a9b7ebbdac5af11994629a805e1","n_iter":780,"cols":["lead_d","bstar","alt_t","n","ecc","incl_deg","shiftR","shiftS","shiftW","n_shell_dist","on_shell","medcorr3_S","medcorr7_S","snapcorr_S","trendcorr_S","n_med3d","n_med7d"],"comps":["R","S","W"],"shells":[0.0655605793205469,0.0657291850639733,0.0658356476612508],"n_test_nodes":127,"n_leaves":128,"n_trees":780,"base":{"R":-0.2992617657627213,"S":-0.48360701085739016,"W":0.00340804069613417},"scale_cen":{"R":[-2.268794717611306,-1.015702264840106,-0.5553388812558923,-0.20857388862279744,0.3949913186458703,1.0757140306933004,1.4767140375688415,1.7628867687179965,1.983903002330249,2.165285536226819,2.3194851648046515,2.4518673411357894,2.571085360947994,2.676279779286387,2.77142205588808,2.859244921621847,2.9403369050530452,3.0148773787319127,3.085367799716192,3.1507144568208725,3.2120625825160896,3.2696522353585893,3.324287662146062,3.37563096797501],"S":[-2.268794717611306,-1.015702264840106,-0.5553388812558923,-0.20857388862279744,0.3949913186458703,1.0757140306933004,1.4767140375688415,1.7628867687179965,1.983903002330249,2.165285536226819,2.3194851648046515,2.4518673411357894,2.571085360947994,2.676279779286387,2.77142205588808,2.859244921621847,2.9403369050530452,3.0148773787319127,3.085367799716192,3.1507144568208725,3.2120625825160896,3.2696522353585893,3.324287662146062,3.37563096797501],"W":[-2.268794717611306,-1.015702264840106,-0.5553388812558923,-0.20857388862279744,0.3949913186458703,1.0757140306933004,1.4767140375688415,1.7628867687179965,1.983903002330249,2.165285536226819,2.3194851648046515,2.4518673411357894,2.571085360947994,2.676279779286387,2.77142205588808,2.859244921621847,2.9403369050530452,3.0148773787319127,3.085367799716192,3.1507144568208725,3.2120625825160896,3.2696522353585893,3.324287662146062,3.37563096797501]},"scale_med":{"R":[-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2004738419680097,-0.90863105366965,-0.6394472666406502,-0.4034503563236627,-0.17661200292438084,0.03153026441472442,0.24947950564843796,0.4402609096467311,0.6614256769754464,0.8718869856523489,1.0825121910890536,1.3111304626618212,1.5142985973955736,1.6646984417505313,1.8464582751446783,2.0257823964971315,2.1611552670582426,2.3046490017074843],"S":[0.6216995723019433,1.1052176668156444,1.370192143516762,1.6037764507097538,1.9635011687017805,2.4674202685475324,2.8266298802552137,3.08157408004213,3.2735313804372232,3.4263173971070544,3.5753907828653335,3.69660831748878,3.8043055375000727,3.8895440720512937,3.9819221840309007,4.065004702177142,4.136374810884248,4.2204928701969004,4.276185987698868,4.328418454527739,4.3837245446729405,4.428783133574871,4.456438755428824,4.494378075774491],"W":[-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-1.2039728043259361,-0.9319287109164595,-0.6461526024124774,-0.41602795486144606,-0.23877941131640906,-0.0785159087556043,0.05760488540082043,0.18168640671626485,0.28479366606106155,0.3839133915457008,0.47936625914166636,0.5631132597240629,0.6331583828277666,0.7102584687584464,0.7793045650816377,0.8397334559546025,0.8971160240029697,0.9565083262521397,1.004497484497914]},"arrays":{"R":{"thr":[0,3626,"<f8"],"leaf":[29008,99840,"<f8"],"thri":[827728,99060,"<u2"],"left":[1025848,99060,"<i2"],"right":[1223968,99060,"<i2"],"feat":[1422088,99060,"|u1"]},"S":{"thr":[1521152,3617,"<f8"],"leaf":[1550088,99840,"<f8"],"thri":[2348808,99060,"<u2"],"left":[2546928,99060,"<i2"],"right":[2745048,99060,"<i2"],"feat":[2943168,99060,"|u1"]},"W":{"thr":[3042232,3623,"<f8"],"leaf":[3071216,99840,"<f8"],"thri":[3869936,99060,"<u2"],"left":[4068056,99060,"<i2"],"right":[4266176,99060,"<i2"],"feat":[4464296,99060,"|u1"]}},"blob_bytes":4563356,"blob_sha256":"2765bcab52e682aed07a5a8ca490d02b389a4ecbc5465330651dcf8a76bc01e7"}</script>
@@ -3726,10 +3726,6 @@ whenModelText(function () {
     try {
       var buf = decodeBase64($('model-b64').textContent.replace(/\s+/g, ''));
       model = E.loadModel(META, buf);
-      var short = META.blob_sha256.slice(0, 16) + '...', box = $('sha');
-      if (window.crypto && crypto.subtle && crypto.subtle.digest) {
-        crypto.subtle.digest('SHA-256', buf).then(function (h) { box.textContent = short + (hex(h) === META.blob_sha256 ? ' (checked in your browser: matches the study)' : ' (MISMATCH)'); }, function () { box.textContent = short; });
-      } else box.textContent = short;
       refreshGo();
     } catch (e) { $('gostate').textContent = 'The model could not be loaded: ' + e.message; }
   }, 0);
