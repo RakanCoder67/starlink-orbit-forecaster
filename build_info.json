@@ -1,0 +1,207 @@
+{
+ "version": "6.0",
+ "built": "Mon Nov  2 14:21:53 +03 2026",
+ "bytes": 6558876,
+ "sha256": "0c68b57c32e23317b5ae5223342113401aee2fe46aff9a9bfe60f896da255945",
+ "detail_bytes": 7819763,
+ "detail_sha256": "64a3813567ca64580380b74d62af083f55aa3404b3e66139da3cd0020a8afd28",
+ "readme_sha256": "35a0dc2e66b7598d6fc224d97e3f9a0e0ee82970d8a42247f3b458bd94ea0a24",
+ "license_sha256": "1bd0348186ce606c6625af989783c69c3eb47026e75a53aafe448d49d744db17",
+ "page404_sha256": "d69936eb2034f8854644afd2d7dd5e33e08d48b07de5da0e4a39617f8c1ab1f7",
+ "model_sha256": "2765bcab52e682aed07a5a8ca490d02b389a4ecbc5465330651dcf8a76bc01e7",
+ "engine_sha256": "d238ce6efeac866e1b98ebc53718e5ee6482fecb8ec888164b7ac3817b2fed31",
+ "satellite_js_sha256": "5a7c3d83f84a2450080fd39bfffd213547daeadfb2f2f881175b9eadb315d917",
+ "ui_sha256": "7152688ad6e3eb2cfea2b2a6acf69a82f8403783359ccbb039a59c07e08ea8c4",
+ "evidence_sha256": "9e1cd25661c530e021881d2bf4e5370d83526d27037d79ded606b4845339cc21",
+ "evidence_extra_sha256": "e05f0d919faa3a1ca2b8853d9513b2d940f6349e470db61f85a5fa4ca689ec4c",
+ "public_scan": "clean (no authorship marks, no first-person words)",
+ "links_in_visible_text": [
+  "https://arxiv.org/abs/2506.13034",
+  "https://doi.org/10.6084/m9.figshare.29067764.v1",
+  "https://github.com/RakanCoder67/starlink-orbit-forecaster",
+  "https://github.com/shashwatak/satellite-js",
+  "https://omniweb.gsfc.nasa.gov",
+  "https://www.space-track.org"
+ ],
+ "tokens_used": 174,
+ "storms_shown": [
+  "K7",
+  "K6"
+ ],
+ "examples_shown": 12,
+ "examples_summary": [
+  {
+   "storm": "K6",
+   "name": "STARLINK-5770",
+   "norad": 56026,
+   "med_plain": 62.73380987848846,
+   "med_corr": 4.783713065347941,
+   "n_scored": 25,
+   "d_alt": -0.013330804542420083
+  },
+  {
+   "storm": "K6",
+   "name": "STARLINK-3901",
+   "norad": 52574,
+   "med_plain": 173.36023323508292,
+   "med_corr": 2.543167728800052,
+   "n_scored": 28,
+   "d_alt": -0.05511901559748367
+  },
+  {
+   "storm": "K6",
+   "name": "STARLINK-30757",
+   "norad": 58131,
+   "med_plain": 383.7734704009206,
+   "med_corr": 2.0947993954741495,
+   "n_scored": 27,
+   "d_alt": 0.022995876989625685
+  },
+  {
+   "storm": "K6",
+   "name": "STARLINK-2549",
+   "norad": 48314,
+   "med_plain": 941.7659853362458,
+   "med_corr": 6.054960004524453,
+   "n_scored": 27,
+   "d_alt": 0.04132953202497447
+  },
+  {
+   "storm": "K6",
+   "name": "STARLINK-31020",
+   "norad": 58509,
+   "med_plain": 2730.1247749049257,
+   "med_corr": 6.471335801878299,
+   "n_scored": 27,
+   "d_alt": 0.10365945413013833
+  },
+  {
+   "storm": "K6",
+   "name": "STARLINK-32327",
+   "norad": 61641,
+   "med_plain": 3319.1324519059503,
+   "med_corr": 3319.1324519059503,
+   "n_scored": 25,
+   "d_alt": 82.15656728979957
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-31968",
+   "norad": 59927,
+   "med_plain": 27.29278966866953,
+   "med_corr": 6.564887442253403,
+   "n_scored": 27,
+   "d_alt": 0.02723800868534454
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-3095",
+   "norad": 49160,
+   "med_plain": 84.41910072776739,
+   "med_corr": 1.3426423651719777,
+   "n_scored": 28,
+   "d_alt": -0.015301112232009473
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-4519",
+   "norad": 53439,
+   "med_plain": 174.32990492571952,
+   "med_corr": 3.4759915752352484,
+   "n_scored": 26,
+   "d_alt": -0.06126736682836054
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-6061",
+   "norad": 56795,
+   "med_plain": 419.9682880406218,
+   "med_corr": 3.984882594033382,
+   "n_scored": 29,
+   "d_alt": 0.14137170313188108
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-1524",
+   "norad": 46047,
+   "med_plain": 2532.4386831031197,
+   "med_corr": 6.466190464140198,
+   "n_scored": 25,
+   "d_alt": -0.10812439624896797
+  },
+  {
+   "storm": "K7",
+   "name": "STARLINK-31075",
+   "norad": 58594,
+   "med_plain": 2597.551616027561,
+   "med_corr": 2698.8657186024698,
+   "n_scored": 27,
+   "d_alt": 0.00502021255215368
+  }
+ ],
+ "filings_referenced_by_other_documents": {
+  "Final test (calm weather): rules": 0,
+  "Final test: addendum 1": 0,
+  "Final test: addendum 2": 0,
+  "Storm study: rules": 7,
+  "Storm study: addendum 1": 6,
+  "Storm study: addendum 2": 5,
+  "Storm study: addendum 3 (one storm already scored)": 4,
+  "Storm study: addendum 4": 3,
+  "Storm study: addendum 5": 2,
+  "Storm study: addendum 6": 1,
+  "Storm study: addendum 6b": 1,
+  "Storm study: addendum 6c": 0,
+  "Forward test: rules": 2,
+  "Forward test: addendum 1": 1,
+  "Forward test: addendum 2": 1,
+  "Forward test: addendum 3": 1,
+  "Forward test: addendum 4": 0
+ },
+ "parity": {
+  "test": "test_parity.js",
+  "passed": true,
+  "cases": 56,
+  "forecast_times": 1400,
+  "rows": 14000,
+  "compared": {
+   "P1": 87294,
+   "P3": 42000,
+   "P4": 4152,
+   "nanPairs": 954
+  },
+  "worst": {
+   "positions_km": 1.6268813851638697e-08,
+   "inputs_relative": 4.7642861143356935e-08,
+   "corrections_km": 1.2732925824820995e-11,
+   "final_track_km": 1.4551915228366852e-11,
+   "blend": 0
+  },
+  "limits": {
+   "positions_km": 1e-05,
+   "inputs_relative": 1e-06,
+   "corrections_km": 0.001,
+   "final_track_km": 0.001
+  },
+  "flags_mismatching_cases": 0,
+  "nan_mismatches": 0,
+  "model_sha256": "2765bcab52e682aed07a5a8ca490d02b389a4ecbc5465330651dcf8a76bc01e7"
+ },
+ "examples_parity": {
+  "test": "test_examples_parity.js",
+  "passed": true,
+  "examples": 12,
+  "compared": 634,
+  "worst": {
+   "errors_km": 6.778577699151356e-12,
+   "times_s": 0
+  },
+  "limits": {
+   "errors_km": 0.0001,
+   "times_s": 1e-06
+  },
+  "flag_mismatches": 0,
+  "band_mismatches": 0,
+  "nan_mismatches": 0
+ }
+}

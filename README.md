@@ -2,38 +2,44 @@
 
 Live page: https://rakancoder67.github.io/starlink-orbit-forecaster/
 
-A small machine-learning model corrects the standard orbit forecast (SGP4) of Starlink satellites during geomagnetic storms. The page runs the real model inside the browser: pick a storm and a satellite and see the standard forecast, the corrected forecast and the later orbit files they are compared with. No server, no account and no network request after the page has loaded.
+A test of a machine-learning correction to the standard orbit forecast (SGP4) of Starlink satellites during geomagnetic storms: 14 storms from May 2024 to July 2026, a simple rule without machine learning as the baseline, a forward test with rules written down before the data were opened, and every limit stated. The page runs the real model inside the browser (no server, no account, no network request after the page has loaded) and works offline.
 
-## The result in three numbers
-Median position error of forecasts that cover a storm (seven storms, May 2024 to January 2025; every storm tested on a model that had not seen it):
+Version 6.0, built 2 Nov 2026, 14:21 (Saudi time).
 
-| Forecast | Standard (SGP4) | With the correction | Smaller by |
-|---|---|---|---|
-| 1-5 days ahead | 30.4 km | 5.4 km | 82 % |
-| 5-10 days ahead | 62.4 km | 5.1 km | 92 % |
-| 10-29 days ahead | 418 km | 4.9 km | 99 % |
+## Result in one table
+Typical (median) position error of forecasts that cover a storm, 1-5 days ahead, in km:
 
-"Typical" means the median: half of the forecasts are better than the number shown. With the correction, 14.2 % of the 1-5 day forecasts ended up worse than the standard forecast. The reference ("where the satellite really was") comes from later orbit files, which carry about 2.4 km of their own uncertainty.
+| Storms | Standard SGP4 | Simple rule (no ML) | Corrected (ML) | Corrected / simple rule |
+|---|---|---|---|---|
+| May 2024 - Jan 2025 (7 storms) | 30.4 | 11.7 | 5.4 | 0.46 |
+| April - November 2025 (4 storms) | 25.9 | 12.3 | 6.9 | 0.56 |
+| January - July 2026 (3 storms) | 64.5 | 21.6 | 14.4 | 0.67 |
 
-## What is on the page
-- the three numbers above;
-- a live example with a 3-D view of the real orbit and the two forecasts (drag to turn the Earth, slide through the forecast days): two storms that came after the training of the model (9-10 November 2024 and 1-3 January 2025), four Starlink satellites each, forecast made on your device;
-- how it works in three steps;
-- a table with the result of each storm;
-- a link to the full detailed view (`detail.html`: ground track, true-scale view, storm replays with Dst and Kp, results against the pass marks, and the checks);
-- details folded away: limits, checks, data and credits.
+## Read this first
+- Most of the gain comes from a simple rule (B*=0 plus a correction of the speed along the track): at 1-5 days it delivers 75 % of the total gain in the 2024-25 storms.
+- The model sees no space weather. All 17 inputs come from the satellite's own recent orbit files. This is a robustness test of a Starlink-specific correction during storms, not a model of how storms heat the atmosphere.
+- The advantage of the learned part shrank in 2026: corrected / simple-rule error 0.46 in 2024-25, 0.56 in the 2025 storms, 0.67 in the 2026 storms, 0.95 in July 2026.
+- Of the pre-set checks of the forward test, the no-harm check (FT3) and the shuffled-inputs control (FT6) failed for the 2026 storms, in one storm and one lead band; the uncertainty-range checks FU2 and FU3 failed.
+- With the correction, 14 % of the 1-5 day forecasts in 2024-25 are worse than the standard forecast (21 % in 2025-26). The reference ("where the satellite really was") comes from later orbit files and carries about 2.4 km of its own noise.
+- Starlink only; 1-29 days ahead; at least 10 orbit files.
+
+## Files
+- `index.html`: the whole page (trained model, forecaster in JavaScript, satellite.js and the example satellites are inside this one file).
+- `detail.html`: the full detailed view (ground track, true-scale view, storm replays with Dst and Kp, quiet-week test against SpaceX positions), also one file. The file names are lower case; GitHub Pages is case-sensitive.
+- `404.html`: shown for addresses that do not exist.
+- `LICENSE`: MIT licence.
+- `build_info.json`: version, size and fingerprints of the files.
+- `offline/`: the same two pages with instructions for a computer without internet.
 
 ## How it works
 1. SGP4 turns the newest public orbit file (TLE) of a satellite into a forecast.
-2. A model of decision trees (3 x 780 trees), trained on 2024 data, adds a correction. It looks only at the satellite's own recent orbit history.
-3. Later orbit files show where the satellite really was; the corrected forecast stays much closer.
-
-## Files
-- `index.html`: the whole page (the trained model, the forecaster in JavaScript, the satellite.js library and the example satellites are inside this one file).
-- `detail.html`: the full detailed view, also one file.
-- `README.md`: this text.
+2. Decision trees (3 x 780 trees, gradient boosting), trained on 2024 data, add a correction from 17 inputs taken from the satellite's own orbit history.
+3. Later orbit files show where the satellite really was; the page compares the two forecasts with them.
 
 ## Data and credits
-- Orbit files (TLEs): Space-Track (https://www.space-track.org), collected in the dataset SpaceTrack-TimeSeries (Guo et al., 2025; https://doi.org/10.6084/m9.figshare.29067764.v1; https://arxiv.org/abs/2506.13034). The TLE lines in the examples were re-created from stored orbital elements and rounded to the TLE format; they are not the original lines.
+- Orbit files (TLEs): Space-Track (https://www.space-track.org), collected for April 2024 - March 2025 in the dataset SpaceTrack-TimeSeries (Guo et al., 2025; https://doi.org/10.6084/m9.figshare.29067764.v1; https://arxiv.org/abs/2506.13034). Orbit files of 1 April 2025 to 14 September 2026 were downloaded from Space-Track directly and are not re-published. The TLE lines in the examples were re-created from stored orbital elements and rounded to the TLE format; they are not the original lines.
 - Storm dates, Dst and Kp: NASA/SPDF OMNI2 hourly record (https://omniweb.gsfc.nasa.gov).
-- SGP4: satellite.js 5.0.0 (MIT license, Shashwat Kandadai and contributors; https://github.com/shashwatak/satellite-js), with one change: the export of an internal initialization function.
+- SGP4 in the page: satellite.js 5.0.0 (MIT license, Shashwat Kandadai and contributors; https://github.com/shashwatak/satellite-js), with one change: the export of an internal initialization function.
+
+## Licence
+MIT, see `LICENSE`. Copyright (c) 2026 Rakan Alghamdi.
