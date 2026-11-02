@@ -263,7 +263,7 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
 <nav class="topnav" aria-label="Sections of this page">
   <a class="brand" href="#top">Starlink Orbit Forecaster</a>
   <div class="links">
-    <a href="live.html"><b>Live forecasts</b></a><a href="#results">Result</a><a href="#forward">Real-life test</a><a href="#try">Try it</a><a href="#storms">Storm by storm</a><a href="#tails">Error spread</a><a href="#how">How it works</a><a href="#limits">Scope</a><a href="#data">Data and code</a><a href="#questions">Questions</a>
+    <a href="#results">Result</a><a href="#forward">Real-life test</a><a href="#try">Try it</a><a href="#storms">Storm by storm</a><a href="#tails">Error spread</a><a href="#how">How it works</a><a href="#limits">Scope</a><a href="#data">Data and code</a><a href="#questions">Questions</a>
   </div>
 </nav>
 <div class="wrap" id="top">
@@ -533,7 +533,7 @@ noscript p { background: var(--warn-bg); color: var(--warn-ink); padding: 10px 1
     <li><b>Repository:</b> <a href="https://github.com/RakanCoder67/starlink-orbit-forecaster" rel="noopener">https://github.com/RakanCoder67/starlink-orbit-forecaster</a> (this page, the detailed view, README and licence). <b>Licence:</b> MIT, see <span class="mono">LICENSE</span> in the repository.</li>
     <li><b>The model is inside this page</b> (a packed copy of all 3 &times; 780 trees) together with the forecaster in JavaScript and satellite.js. Before the page was built, its forecaster was checked against the research program (Python) on 56 test satellites (1,400 forecast times). The largest difference was 1.6e-8 km in plain SGP4 positions and 1.5e-11 km in the corrected tracks, and the warnings, safety-rule decisions and combination counts were identical. On the 12 example satellites, the largest difference in the errors was 6.8e-12 km. The same test fails when a single leaf of the model is changed by 0.01, so it is able to catch errors.</li>
     <li><b>Offline:</b> save <span class="mono">index.html</span> and <span class="mono">detail.html</span> in one folder and open <span class="mono">index.html</span>; no part of the page loads from the internet.</li>
-    <li><b>Version:</b> 6.0, built 2 Nov 2026, 16:22 (Saudi time).</li>
+    <li><b>Version:</b> 6.0, built 2 Nov 2026, 16:32 (Saudi time).</li>
     <li><b>Not published yet:</b> the research code, the list of test satellites and the per-forecast results table. Every number in the tables of this page comes from them.</li>
   </ul>
   <p class="small">Data credits. Orbit files (TLEs): Space-Track (<a href="https://www.space-track.org" rel="noopener">https://www.space-track.org</a>) and the SpaceTrack-TimeSeries dataset (Guo et al., 2025; <a href="https://arxiv.org/abs/2506.13034" rel="noopener">https://arxiv.org/abs/2506.13034</a>). The TLE lines in the demo were re-created from stored orbital elements, rounded to the TLE format; they are not the original lines. Storm dates, Dst and Kp: the NASA/SPDF OMNI2 hourly record (<a href="https://omniweb.gsfc.nasa.gov" rel="noopener">https://omniweb.gsfc.nasa.gov</a>); Dst from the World Data Center for Geomagnetism, Kyoto; Kp from GFZ Potsdam. SGP4 in this page: satellite.js 5.0.0 (MIT license, Shashwat Kandadai and contributors; <a href="https://github.com/shashwatak/satellite-js" rel="noopener">https://github.com/shashwatak/satellite-js</a>), with one change: the export of an internal initialization function. SGP4 in the research program: the Python <span class="mono">sgp4</span> package.</p>
